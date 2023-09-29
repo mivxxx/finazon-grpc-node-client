@@ -1,0 +1,52 @@
+syntax = "proto3";
+option go_package = "gitlab.com/finazon/api/pb";
+
+package pb;
+
+message TimeSeries {
+    int64 timestamp = 1;
+    double open = 2;
+    double close = 3;
+    double high = 4;
+    double low = 5;
+    double volume = 6;
+}
+
+message TimeSeriesRequest {
+    string publisher = 1;
+    string ticker = 2;
+    string exchange = 3;
+    string mic = 4;
+    string country = 5;
+    string instrument_type = 6;
+    string timezone = 7;
+    string interval = 8;
+    string date = 9;
+    int64 start_at = 10;
+    int64 end_at = 11;
+    int32 page = 12;
+    int32 page_size = 13;
+    string order = 14;
+    bool prepost = 15;
+    string market = 16;
+    string dataset = 17;
+    string cqs = 18;
+    string cik = 19;
+    string cusip = 20;
+    string isin = 21;
+    string composite_figi = 22;
+    string share_figi = 23;
+    string lei = 24;
+}
+
+message TimeSeriesResponse {
+    repeated TimeSeries result = 1;
+}
+
+/**
+ * TimeSeriesService provide access to time series data
+ */
+service TimeSeriesService {
+    /// Get time series data without technical indicators
+    rpc GetTimeSeries(TimeSeriesRequest) returns (TimeSeriesResponse) {};
+}
