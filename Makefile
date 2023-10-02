@@ -9,4 +9,4 @@ bump_version:
 
 .PHONY: publish
 publish:
-	@npm run publish
+	@npm publish
