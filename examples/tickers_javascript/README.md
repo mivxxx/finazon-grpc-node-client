@@ -16,7 +16,6 @@ npm run start
 
 Example output:
 ```json
-reading tickers crypto...
 {
   "resultList": [
     {
