@@ -1,7 +1,6 @@
 syntax = "proto3";
-option go_package = "gitlab.com/finazon/api/pb";
 
-package pb;
+package finazon;
 
 message TradesItem {
   int64 trade_date = 1;
@@ -38,6 +37,6 @@ message TradesResponse {
  * TradeService provide access to Finazon trades
  */
 service TradeService {
-  /// Returns general information on executed trades
+  // Returns general information on executed trades
   rpc GetTrades(TradesRequest) returns (TradesResponse) {};
 }

@@ -1,7 +1,6 @@
 syntax = "proto3";
-option go_package = "gitlab.com/finazon/api/pb";
 
-package pb;
+package finazon;
 
 // Crypto
 
@@ -43,9 +42,9 @@ message MarketsStocksResponse {
  * ExchangeService provide access to Finazon exchange data
  */
 service ExchangeService {
-  /// Returns a list of supported crypto markets
+  // Returns a list of supported crypto markets
   rpc GetMarketsCrypto(MarketsCryptoRequest) returns (MarketsCryptoResponse) {};
 
-  /// Returns a list of supported stock markets
+  // Returns a list of supported stock markets
   rpc GetMarketsStocks(MarketsStocksRequest) returns (MarketsStocksResponse) {};
 }

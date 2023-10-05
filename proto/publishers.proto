@@ -1,7 +1,6 @@
 syntax = "proto3";
-option go_package = "gitlab.com/finazon/api/pb";
 
-package pb;
+package finazon;
 
 message PublisherItem {
   string code = 1;
@@ -22,6 +21,6 @@ message PublishersResponse {
  * PublisherService provide access to Finazon publishers
  */
 service PublisherService {
-  /// Get a list of all publishers available at Finazon.
+  // Get a list of all publishers available at Finazon.
   rpc GetPublishers(PublishersRequest) returns (PublishersResponse) {};
 }

@@ -1,7 +1,6 @@
 syntax = "proto3";
-option go_package = "gitlab.com/finazon/api/pb";
 
-package pb;
+package finazon;
 
 //Stocks
 
@@ -9,7 +8,7 @@ message TickerStocksInfo {
     string ticker = 1;
     string country = 2;
     string currency = 3;
-//    string mic = 4;
+    // string mic = 4;
     string publisher = 4;
     string publisher_name = 5;
 }
@@ -74,12 +73,12 @@ message FindTickerForexResponse {
  * TickersService provide access to tickers
  */
 service TickersService {
-    /// This API call returns an array of stocks tickers available at Finazon Data API. This list is updated daily.
+    // This API call returns an array of stocks tickers available at Finazon Data API. This list is updated daily.
     rpc FindTickersStocks(FindTickersStocksRequest) returns (FindTickerStocksResponse) {};
 
-    /// This API call returns an array of crypto tickers available at Finazon Data API. This list is updated daily.
+    // This API call returns an array of crypto tickers available at Finazon Data API. This list is updated daily.
     rpc FindTickersCrypto(FindTickersCryptoRequest) returns (FindTickerCryptoResponse) {};
 
-    /// This API call returns an array of forex tickers available at Finazon Data API. This list is updated daily.
+    // This API call returns an array of forex tickers available at Finazon Data API. This list is updated daily.
     rpc FindTickersForex(FindTickersForexRequest) returns (FindTickerForexResponse) {};
 }

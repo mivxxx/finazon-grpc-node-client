@@ -1,7 +1,6 @@
 syntax = "proto3";
-option go_package = "gitlab.com/finazon/api/pb";
 
-package pb;
+package finazon;
 
 message DatasetItem {
   string code = 1;
@@ -22,6 +21,6 @@ message DatasetsResponse {
  * DatasetsService provide access to Finazon datasets
  */
 service DatasetsService {
-  /// Get a list of all datasets available at Finazon.
+  // Get a list of all datasets available at Finazon.
   rpc GetDatasets(DatasetsRequest) returns (DatasetsResponse) {};
 }

@@ -1,9 +1,8 @@
 syntax = "proto3";
-option go_package = "gitlab.com/finazon/api/pb";
 
 import "google/protobuf/timestamp.proto";
 
-package pb;
+package finazon;
 
 // DividentsCalendar
 
@@ -144,16 +143,74 @@ message NewsItem {
   string url = 10;
 }
 
+message IPORequest {
+  int64  start_at = 3;
+  int64  end_at = 4;
+  int32  page = 5;
+  int32  page_size = 6;
+  string order = 7;
+  string exchange = 15;
+}
+
+message IPOResponse {
+  repeated IPOItem ipos = 1;
+}
+
+message IPOItem {
+  string record_id = 1;
+  string ticker = 2;
+  string name = 3;
+  string mic = 4;
+  string currency = 5;
+  string date = 6;
+  bool   open_date_verified = 7;
+  string time = 8;
+  double price_max = 9;
+  double price_min = 10;
+  double price_open = 11;
+  double price_public_offering =12;
+  double offering_shares = 13;
+  double offering_shares_ord_adr = 14;
+  double offering_value = 15;
+  double ord_shares_out_after_offer = 16;
+  double market_cap_at_offer = 17;
+  string deal_status =18;
+  string initial_filing_date = 19;
+  string insider_lockup_date = 20;
+  int32 insider_lockup_days = 21;
+  string ipo_type = 22;
+  double last_yr_income = 23;
+  double last_yr_income_year = 24;
+  double last_yr_revenue = 25;
+  double last_yr_revenue_year = 26;
+  repeated string lead_underwriters = 27;
+  repeated string other_underwriters = 28;
+  string notes = 29;
+  string pricing_date = 30;
+  string sec_accession_number = 31;
+  string sec_filing_url = 32;
+  double shares_outstanding = 33;
+  double sic = 34;
+  bool spac_converted_to_target = 35;
+  string state_location = 36;
+  string underwriter_quiet_expiration_date = 37;
+  int32 underwriter_quiet_expiration_days = 38;
+  int64 updated = 39;
+}
+
 /**
  * BenzingaService provide access to Benzinga
  */
 service BenzingaService {
-  /// Returns the dividends calendar from Benzinga
+  // Returns the dividends calendar from Benzinga
   rpc GetDividentsCalendar(DividentsCalendarRequest) returns (DividentsCalendarResponse) {};
 
-  /// Returns the earnings calendar from Benzinga
+  // Returns the earnings calendar from Benzinga
   rpc GetEarningsCalendar(EarningsCalendarRequest) returns (EarningsCalendarResponse) {};
 
-  /// Returns the news articles from Benzinga
+  // Returns the news articles from Benzinga
   rpc GetNews(NewsRequest) returns (NewsResponse) {};
+
+  // Returns IPO data from Benzinga
+  rpc GetIPO(IPORequest) returns (IPOResponse) {};
 }

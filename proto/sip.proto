@@ -1,7 +1,6 @@
 syntax = "proto3";
-option go_package = "gitlab.com/finazon/api/pb";
 
-package pb;
+package finazon;
 
 // trades
 
@@ -56,9 +55,9 @@ message SipMarketCenterResponse {
  * SipService provide access to Finazon SIP
  */
 service SipService {
-  /// Returns detailed information on trades executed through the Securities Information Processor (SIP)
+  // Returns detailed information on trades executed through the Securities Information Processor (SIP)
   rpc GetTrades(SipTradesRequest) returns (SipTradesResponse) {};
 
-  /// Returns a list of market centers
+  // Returns a list of market centers
   rpc GetMarketCenter(SipMarketCenterRequest) returns (SipMarketCenterResponse) {};
 }

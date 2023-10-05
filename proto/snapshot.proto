@@ -1,7 +1,6 @@
 syntax = "proto3";
-option go_package = "gitlab.com/finazon/api/pb";
 
-package pb;
+package finazon;
 
 message SnapshotRequest {
   string publisher = 1;
@@ -61,6 +60,6 @@ message SnapshotResponse {
  * SnapshotService provide access to ticker snapshot
  */
 service SnapshotService {
-  /// This endpoint returns a combination of different data points, such as daily performance, last quote, last trade, minute data, and previous day performance.
+  // This endpoint returns a combination of different data points, such as daily performance, last quote, last trade, minute data, and previous day performance.
   rpc GetSnapshot(SnapshotRequest) returns (SnapshotResponse) {};
 }
